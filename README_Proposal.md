@@ -29,7 +29,7 @@ During prelimanry design meeting, we have determined but are not limited to usin
 4. Analysis (Python)
 5. WebApp UI (Streamlit)
 
-These technologies will be combinted on a Windows Server to allow 24x7 always on data collection and analysis. 
+These technologies will be combined on a Windows Server to allow 24x7 always on data collection and analysis. 
 
 ### Roles and Responsibilities
 
