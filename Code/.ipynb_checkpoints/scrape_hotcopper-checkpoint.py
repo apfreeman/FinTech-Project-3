@@ -23,6 +23,7 @@ import concurrent.futures
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import psycopg2
+from scrape_asx_tickers import *
 
 # Load environment variables
 load_dotenv()
@@ -35,7 +36,10 @@ sql_pwd=os.getenv("sql_pwd")
 engine = create_engine(f"postgresql://{sql_username}:{sql_pwd}@localhost:5432/hot_copper_db")
 
 # Set ticker list
-ticker_list = ['QIP','RDG','FLC','CRR','HZR','POD','IPG']
+ticker_list = ['QIP','RDG']
+#ticker_list = ['QIP','RDG','FLC','CRR','HZR','POD','IPG']
+#ticker_list = get_asx_tickers()
+
 
 # Collect count
 stock_count = 0
