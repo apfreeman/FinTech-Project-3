@@ -36,13 +36,12 @@ sql_pwd=os.getenv("sql_pwd")
 engine = create_engine(f"postgresql://{sql_username}:{sql_pwd}@localhost:5432/hot_copper_db")
 
 # Set ticker list
-ticker_list = ['QIP','RDG']
+#ticker_list = ['QIP','RDG']
 #ticker_list = ['QIP','RDG','FLC','CRR','HZR','POD','IPG']
-#ticker_list = get_asx_tickers()
+ticker_list = get_asx_tickers()
 
 # Write tickers data to DB
-ticker_df = pd.DataFrame(ticker_list)
-ticker_df.to_sql('hc_ticker_list', con=engine, if_exists='append')
+ticker_list.to_sql('ticker_list', con=engine, if_exists='append')
 
 
 # Collect count
