@@ -1,18 +1,28 @@
 # FinTech-Project-3
 
-![](https://github.com/apfreeman/FinTech-Project-3/blob/main/Images/How-Data-Analytics.jpg?raw=true)
-
 # Project Title
 ## Raven Analytics
 
-As the final project of this Fintech Bootcamp Course our team has selected the sub category of analytics.  For this project our team has created an Analytics dashboard designed to be used to quickly and easily glean information about ASX listed companies. 
+![](https://github.com/apfreeman/FinTech-Project-3/blob/main/Images/How-Data-Analytics.jpg?raw=true)
 
-Our primary focus was to dig deeper then what is a traditional black box solution such as a market API to return market sentiment data, instead opting to undertake a significantly more challenging task of sourcing and storing the data ourselves.
+# Team Members
+
+- Jordan Dass
+- Adam Freeman 
+- Mitchell Langdon 
+- Tracey Martin
+- Marcus Whitelock 
+
+# Project Description/Outline
+
+As the final project of this Fintech Bootcamp Course our team has selected the sub category of analytics. For this project our team has created an Analytics dashboard designed to be used to quickly and easily glean information about ASX listed companies. 
+
+Our primary focus was to dig deeper then what is a traditional black box solution such as a market API to return market sentiment data, instead opting to undertake a significantly more challenging task of sourcing and storing the data ourselves. By controlling the sourcing of this data we believe we are able to build an agile solution allowing infinite future growth and development as new requirements and opportunities develop.
 
 This approach while more challenging was a deliberate decision based on two main factors 
     
 1. The lack of good sentiment API for ASX listed companies
-2. The inflexible nature and lack of granularity and integration when using off the shelf solution
+2. The inflexible nature and lack of granularity and integration when using off the shelf solution.
 
 To achieve this goal we have designed an end to end solution with the following deliverables.
 
@@ -20,6 +30,15 @@ To achieve this goal we have designed an end to end solution with the following 
 2. Data cleaning, processing and storage
 3. Data analysis 
 4. Self service data analytics tool
+
+The focus of this project is heavily weighted towards building the core infrastructure to allow the unattended collection, storing and hosting of the collected data that would allow it to be a single point of truth that could be reused for analysis. While only limited analysis is available via the dashboard, this solution has been architected such that it can scale up significantly to collect more data from more sources.  
+
+## Data Sources 
+
+The following data source was utilised as the target of the Web Scraping modules.
+
+1. Primary Source - **hotcopper.com.au** Australia's largest stock  trading and investment forum
+
 
 ## High Level Solution Design and Workflows
 
@@ -64,15 +83,11 @@ The fourth Workflow demonstrates how a user will interface with the solution. It
 ![](https://github.com/apfreeman/FinTech-Project-3/blob/main/Images/app_workflow_4.PNG?raw=true)
 
 
-## Data Sources 
-
-The following data source was utilised as the target of the Web Scraping modules.
-
-1. Primary Source - **hotcopper.com.au** Australia's largest stock  trading and investment forum
-
 ## Dashboard 
 
-The primary user interface for this analytics tool is the **Raven Analytics** Dashboard. This Dashboard will provide users with a simple and clean UI for use. The following features are available in the current version of the application. 
+The primary user interface for this analytics tool is the **Raven Analytics** Dashboard. This Dashboard will provide users with a simple and clean UI for use. The following features are available in the current version of the application. As discussed previously the primary objective was to design, build an deploy the scalable infrastructure required to autonomously connect, store and make available the data scraped from financial web sites. 
+
+With this now in place we have created a Dashboard which allows analysis of the following scenarios 
 
 1.
 2.
