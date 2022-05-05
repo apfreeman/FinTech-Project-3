@@ -15,14 +15,14 @@
 
 # Project Description/Outline
 
-As the final project of this Fintech Bootcamp Course our team has selected the sub category of analytics. For this project our team has created an Analytics dashboard designed to be used to quickly and easily glean information about ASX listed companies. 
+As the final project of this Fintech Bootcamp Course our team has selected the sub category of analytics. For this project our team has created an Web Data collection and Analytics solution designed to enable the autonomous gathering of information posted or appearing on any targeted website. 
 
 Our primary focus was to dig deeper then what is a traditional black box solution such as a market API to return market sentiment data, instead opting to undertake a significantly more challenging task of sourcing and storing the data ourselves. By controlling the sourcing of this data we believe we are able to build an agile solution allowing infinite future growth and development as new requirements and opportunities develop.
 
 This approach while more challenging was a deliberate decision based on two main factors 
     
-1. The lack of good sentiment API for ASX listed companies
-2. The inflexible nature and lack of granularity and integration when using off the shelf solution.
+1. The lack of good sentiment API for ASX listed companies specific to our needs
+2. The inflexible nature and lack of granularity and integration when using off the shelf solution (API, Mailing list etc).
 
 To achieve this goal we have designed an end to end solution with the following deliverables.
 
