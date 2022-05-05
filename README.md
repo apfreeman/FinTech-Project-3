@@ -41,17 +41,25 @@ The diagram below details the high level solution design along with the technolo
 
 ### Workflow 1 - Python and Selenium to scrape web data
 
+The first Workflow diagram demonstrates how the server and associated technologies interact to reach out to the hotcopper.com website and populate the database with ~1million rows of data. This data provides the data set for analysis. It was important to us to stick with our project goals of being the creator of the data set, and not rely on something pre existing. 
+
 ![](https://github.com/apfreeman/FinTech-Project-3/blob/main/Images/app_workflow_1.PNG?raw=true)
 
 ### Workflow 2 - Use Database, Python, and Selenium to scrape forum comments
+
+The second Workflow diagram demonstrates how the solution uses the populated database to reach out and gather additional layers of information that has been targeted by user interaction or  specific requirement. 
 
 ![](https://github.com/apfreeman/FinTech-Project-3/blob/main/Images/app_workflow_2.PNG?raw=true)
 
 ### Workflow 3 - Use Database and Python to create analysis and visualisations
 
+The third Workflow demonstrates how the solution with a populated dataset can now produce analysis and visualisations using common python libraries. 
+
 ![](https://github.com/apfreeman/FinTech-Project-3/blob/main/Images/app_workflow_3.PNG?raw=true)
 
 ### Workflow 4 - Use Database, Python and Streamlit to create user interface
+
+The fourth Workflow demonstrates how a user will interface with the solution. It is intended that all infrastructure is hidden from the user, with just a single point of entry using a web browser accessible dashboard for a clean and simple user experience. An end user will be able to access reports or other information and even self serve particular requests based on their own requirements. 
 
 ![](https://github.com/apfreeman/FinTech-Project-3/blob/main/Images/app_workflow_4.PNG?raw=true)
 
@@ -65,10 +73,11 @@ The following data source was utilised as the target of the Web Scraping modules
 ## Dashboard 
 
 The primary user interface for this analytics tool is the **Raven Analytics** Dashboard. This Dashboard will provide users with a simple and clean UI for use. The following features are available in the current version of the application. 
+
 1.
 2.
 3.
 4.
- 
+
 
 
