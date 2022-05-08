@@ -11,15 +11,9 @@ import warnings
 import time
 import re
 import datetime as dt
-import asyncio
-import aiohttp
 from urllib.request import Request, urlopen
 import urllib.request
 import matplotlib.pyplot as plt
-from multiprocessing import Pool
-from multiprocessing import Process
-from multiprocessing import Queue
-import concurrent.futures
 
 plt.style.use("ggplot")
 #%reload_ext nb_black

@@ -62,7 +62,7 @@ def tokenizer(text):
 # Create an empty list for top comments
 top_comments = []
 
-# Read in  hc_stock_sum tables from the DB
+# Read in  hc_stock_sum table from the DB
 query = """
 SELECT *
 FROM hc_stock_sum
@@ -101,6 +101,12 @@ combined_df = pd.DataFrame({"HREF": hc_stock_sum_links, "Text": top_comments})
 
 # Extract text from list item in text column
 combined_df["Text"] = combined_df["Text"].str[0]
+
+# Drop Nulls
+combined_df.dropna()
+
+# Cast Text as string dtype
+combined_df["Text"] = combined_df["Text"].astype(str)
 
 # Remove punctuation
 combined_df["Text"] = combined_df["Text"].apply(lambda x: x.replace("\n", ""))
