@@ -1,6 +1,6 @@
 streamlit
 pandas
-load_dotenv
+wordcloud
 sqlalchemy
 psycopg2
 os

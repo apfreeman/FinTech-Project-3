@@ -31,7 +31,7 @@ lemmatizer = WordNetLemmatizer()
 stopwords = list(stopwords.words("english"))
 
 # Additional stopwords
-additional_stopwords = ["said", "also"]
+additional_stopwords = ["said", "also", "posted","originally"]
 
 # Expand the default stopwords list if necessary
 for stop in additional_stopwords:

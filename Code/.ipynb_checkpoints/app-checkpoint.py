@@ -9,6 +9,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 import plotly
+from wordcloud import WordCloud
+from PIL import Image
+import requests
+import base64
 
 plt.style.use('seaborn')
 
@@ -30,14 +34,16 @@ FROM hc_stock_sum
 
 # Read in  hc_top_likes table from the DB
 hc_ticker_list_query = """
-SELECT *
+SELECT "0" as TICKER
 FROM hc_ticker_list
          """
 
 # Read in  hc_top_likes table from the DB
 top_likes_query = """
-SELECT *
-FROM hc_top_likes
+SELECT
+    b."Text", a."Ticker", a."Likes"
+from
+    hc_stock_sum a inner join hc_top_likes b on a."HREF_Link" = b."HREF" ORDER BY 3 DESC
          """
 
 # Create a DataFrames from the query result
@@ -75,10 +81,25 @@ hc_stock_sum_ordered.drop(columns = 'Ticker_Filter', inplace = True)
 ########################################################################
 # Streamlit Code
 
-# Set the page configuration, titles and addition of additional markdown
-st.set_page_config(page_title = "Raven Analytics", layout = "wide")
-st.title("Raven Analytics")
+# Page layout
+img = Image.open('Images/tab_logo.png')
+st.set_page_config(page_title="Raven Analytics", layout = "wide", page_icon=img)
+st.markdown("<h1 style='text-align: center; color: #3AE5E8; font-size:400%'>Raven Analytics</h1>", unsafe_allow_html=True)
 st.markdown("We use the latest technology to create free tools for you to understand all the latest information being said about your ASX stocks.")
+
+# Opening GIF file
+file_ = open("Images/lottie_gif.gif", "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+
+_left, mid, _right = st.columns(3)
+with mid:
+    st.markdown(
+    f'<img src="data:image/gif;base64,{data_url}" alt="logo">',
+    unsafe_allow_html=True,
+    )
+    
 
 # Split into two separate columns for Steamlit page layout
 col1, col2 = st.columns(2)
@@ -102,11 +123,12 @@ with col1:
     st.write(hc_stock_sum_ordered)
     
     # Print Streamlit Tables from Database
-    st.markdown("# Hotcopper Tickers")
+    st.subheader("Hotcopper Tickers")
     st.write(hc_ticker_list)
 
     # Print Streamlit Tables from Database
-    st.markdown("# Hotcopper Top Likes")
+    st.subheader("Hotcopper Top Likes")
+    st.markdown("Browse the top comments on the HotCopper stock forums to see what investors deem to be useful information related to a stock.")
     st.write(hc_top_likes)
     
     # Subheader for most talked about
@@ -133,10 +155,10 @@ with col2:
      * **HC_TOP_LIKES**: This table includes the comments that received the most likes from users on HotCopper. Use this table to join back to HC_STOCK_SUM
      
     Sample queries include:
-     * `SELECT * FROM HC_STOCK_SUM`
-     * `SELECT * FROM HC_TOP_LIKES`
-     * `SELECT "HREF" FROM HC_TOP_LIKES`
-     * `SELECT a."Ticker", a."Poster", a."Likes", b."Text" from hc_stock_sum a inner join hc_top_likes b on a."HREF_Link" = b."HREF" ORDER BY 3 DESC`
+     * `SELECT * FROM HC_STOCK_SUM FETCH FIRST 1000 ROWS ONLY` 
+     * `SELECT * FROM HC_TOP_LIKES FETCH FIRST 1000 ROWS ONLY`
+     * `SELECT "HREF" FROM HC_TOP_LIKES FETCH FIRST 1000 ROWS ONLY`
+     * `SELECT a."Ticker", a."Poster", a."Likes", b."Text" from hc_stock_sum a inner join hc_top_likes b on a."HREF_Link" = b."HREF" ORDER BY 3 DESC FETCH FIRST 1000 ROWS ONLY`
      
     Note to user: when querying individual columns, ensure to place double quotations around the column name as per the last example above.
      """)
@@ -185,7 +207,7 @@ with col2:
     # Obtain text
     nlp_query = f"""
     SELECT
-        b."Text"
+        b."Text", b."Tokenize"
     from
         hc_stock_sum a inner join hc_top_likes b on a."HREF_Link" = b."HREF"
     WHERE a."Ticker" = '{ticker_input}'
@@ -199,7 +221,21 @@ with col2:
         # Display sample results
         st.dataframe(nlp_data)
         
-        #### ADAM: WORDCLOUD here with text from nlp_data above
+        # Word cloud generation
+        # Generate the words within the dataframe
+        stock_words_list  = " ".join([str(x) for x in nlp_data['Tokenize']])
+
+        # Generate the word cloud
+        wc = WordCloud().generate(stock_words_list)
+        
+       
+        # Show the image
+        # Display the generated image:
+        plt.imshow(wc, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+        st.pyplot(plt)
+        
     except:
         
         st.warning("Please enter a valid ticker")
