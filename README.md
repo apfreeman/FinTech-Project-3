@@ -85,14 +85,40 @@ The fourth Workflow demonstrates how a user will interface with the solution. It
 
 ## Dashboard 
 
-The primary user interface for this analytics tool is the **Raven Analytics** Dashboard. This Dashboard will provide users with a simple and clean UI for use. The following features are available in the current version of the application. As discussed previously the primary objective was to design, build an deploy the scalable infrastructure required to autonomously connect, store and make available the data scraped from financial web sites. 
+The primary user interface for this analytics tool is the **Raven Analytics** Dashboard - [Link to Raven Dashboard](http://raven.creativenetworks.com.au:8502/). This Dashboard will provide users with a simple and clean UI for use and is available on PC and mobile. The following features are available in the current version of the application. As discussed previously the primary objective was to design, build an deploy the scalable infrastructure required to autonomously connect, store and make available the data scraped from financial web sites. 
 
 With this now in place we have created a Dashboard which allows analysis of the following scenarios 
 
-1.
-2.
-3.
-4.
+1.Visualisation
 
+The following chart shows the most liked stocks based on comments made on stock forums.
 
+The following shows the most liked comments on Hotcopper based on recent data collection.
+
+2. Self-Service Analytics
+
+For users experienced in SQL (or who even want to learn), try querying our live database for information about your stock. Refer to the tables and data dictionaries below for further guidance.
+
+There are three tables used to store our data. These include :
+
+- HC_STOCK_SUM: Includes comment volume and likes about your stock including the poster and the HREF. Note that HREF is the key to joining to the comments table (sample query below)
+
+- HC_TICKER_LIST: Stuck on a ticker to search for? Refer to our database to find tickers for ASX companies.
+
+- HC_TOP_LIKES: This table includes the comments that received the most likes from users on HotCopper. Use this table to join back to HC_STOCK_SUM
+
+3. Hotcopper Tickers
+
+4. Hotcopper Top Likes
+
+Browse the top comments on the HotCopper stock forums to see what investors deem to be useful information related to a stock.
+
+5. ASX Stock Sentiment: What are investors saying about your stocks?
+
+6. Most active/talked about stocks
+The following captures the stocks that are most talked about.
+
+7. Full Network of Top 20 Shareholders of the ASX200
+
+8. Custom filter for Stocks and Shareholders 
 
