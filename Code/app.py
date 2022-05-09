@@ -408,10 +408,10 @@ for shareholder in unique_shareholders_asx200:
         
 net.repulsion(node_distance=1500, spring_length=1000)
 #path = '/tmp'
-net.save_graph('pyvis_full_graph.html')
+net.save_graph('../Html/pyvis_full_graph.html')
 
 #path = '/tmp'
-HtmlFile = open('pyvis_full_graph.html','r',encoding='utf-8')
+HtmlFile = open('../Html/pyvis_full_graph.html','r',encoding='utf-8')
 
 if st.button("Display full network"):
     components.html(HtmlFile.read(), height=600, width = 2000)
@@ -532,7 +532,7 @@ def shareholders_connection_graph(ticker_chosen):
 
     net.repulsion(node_distance=300, spring_length=200)
     #path = '/tmp'
-    net.save_graph('pyvis_graph.html')
+    net.save_graph('../Html/pyvis_graph.html')
 
 col1, col2 = st.columns(2)
 
@@ -563,7 +563,7 @@ ticker_and_shareholder = selected_ticker + selected_shareholder
 shareholders_connection_graph(ticker_and_shareholder)
 
 #path = '/tmp'
-HtmlFile = open('pyvis_graph.html','r',encoding='utf-8')
+HtmlFile = open('../Html/pyvis_graph.html','r',encoding='utf-8')
 
 
 
