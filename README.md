@@ -87,6 +87,8 @@ The fourth Workflow demonstrates how a user will interface with the solution. It
 
 ## User Interface 
 
+***NOTE: This system runs on paid infrastructure and as such has been stopped after demo to stop incurring costs. If for marking ths UI needs to be live, please slack Adam Freeman to start.*** 
+
 The primary user interface for this analytics tool is the **Raven Analytics** Dashboard - [Link to Raven Dashboard](http://raven.creativenetworks.com.au:8502/). This Dashboard will provide users with a simple and clean UI for use and is available on PC and mobile. The following features are available in the current version of the application. As discussed previously the primary objective was to design, build an deploy the scalable infrastructure required to autonomously connect, store and make available the data scraped from financial web sites. 
 
 With this now in place we have created a UI Dashboard which allows analysis of the following scenarios. Despite the examples, the possibilities going forward as an analysis tool are endless.   
